@@ -4,6 +4,8 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the IG_Kola database table.
@@ -33,6 +35,7 @@ public class IG_Kola implements Serializable {
 	private float motorSize;
 
 	//bi-directional many-to-one association to IG_Lista_has_Kola
+	@JsonIgnore
 	@OneToMany(mappedBy="igKola")
 	private List<IG_Lista_has_Kola> igListaHasKolas;
 
