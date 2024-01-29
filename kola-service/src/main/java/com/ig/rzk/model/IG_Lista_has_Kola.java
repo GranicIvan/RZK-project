@@ -1,6 +1,9 @@
 package com.ig.rzk.model;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 
@@ -17,10 +20,12 @@ public class IG_Lista_has_Kola implements Serializable {
 	private IG_Lista_has_KolaPK id;
 
 	//bi-directional many-to-one association to IG_Kola
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="Kola_idKola")
 	private IG_Kola igKola;
 
+	@JsonIgnore
 	//bi-directional many-to-one association to IG_Lista
 	@ManyToOne
 	@JoinColumn(name="Lista_idLista")

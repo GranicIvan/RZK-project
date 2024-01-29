@@ -2,6 +2,8 @@ package com.ig.rzk.model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,6 +22,7 @@ public class IG_Kola implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idKola;
 
+	@Max(value = 2026, message="Godina")
 	@Column(name="godina_proizvodnje")
 	private String godinaProizvodnje;
 
@@ -50,6 +53,7 @@ public class IG_Kola implements Serializable {
 		this.idKola = idKola;
 	}
 
+	
 	public String getGodinaProizvodnje() {
 		return this.godinaProizvodnje;
 	}
