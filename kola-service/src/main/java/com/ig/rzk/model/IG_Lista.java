@@ -4,6 +4,8 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the IG_Lista database table.
@@ -25,6 +27,7 @@ public class IG_Lista implements Serializable {
 
 	private String opis;
 
+	@JsonIgnore
 	//bi-directional many-to-one association to IG_Lista_has_Kola
 	@OneToMany(mappedBy="igLista")
 	private List<IG_Lista_has_Kola> igListaHasKolas;
