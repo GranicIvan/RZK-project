@@ -15,6 +15,7 @@ import com.ig.rzk.repository.ListRepo;
 import com.ig.rzk.repository.ListaHasKolaRepo;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 
 @Service
 public class KolaService {
@@ -52,6 +53,11 @@ public class KolaService {
 	public IG_Lista_has_Kola ubaciKolaUListu(@Valid IG_Lista_has_Kola lista) {
 		lhkr.save(lista);
 		return null;
+	}
+
+
+	public List<IG_Kola> autiUListi(int idLista) {
+		return kr.findByListaId(idLista);
 	}
 	
 	

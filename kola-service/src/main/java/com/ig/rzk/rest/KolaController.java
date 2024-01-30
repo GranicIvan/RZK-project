@@ -42,7 +42,7 @@ public class KolaController {
 	
 	@GetMapping("/listaByKola/{idKola}")
 	public List<IG_Lista> listaPoKolima(@PathVariable @Min(value=0, message="id kola mora biti nenegativan ceo broj") int idKola){
-		System.out.println("----- Pokrenuli smo listaPoKolima ---");
+		//System.out.println("----- Pokrenuli smo listaPoKolima ---");
 		return service.listeSaAutom(idKola);
 	}
 	
@@ -53,10 +53,17 @@ public class KolaController {
 	}
 	
 	
+	
 	@PostMapping("/ubaciKolaUListu")
 	public ResponseEntity<IG_Lista_has_Kola> ubaciKolaUListu(@RequestBody @Valid IG_Lista_has_Kola listaHasKola) {
 		IG_Lista_has_Kola lhk = service.ubaciKolaUListu(listaHasKola);
 		return new ResponseEntity<IG_Lista_has_Kola>(lhk, HttpStatus.CREATED);
+	}
+	
+	
+	@GetMapping("/kolaUListi/{idLista}")
+	public List<IG_Kola> kolaUListi(@PathVariable @Min(value=0, message="id liste mora biti nenegativan ceo broj") int idLista){
+		return service.autiUListi(idLista);
 	}
 	
 }
