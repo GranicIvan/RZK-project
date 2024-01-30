@@ -51,8 +51,8 @@ public class KolaController {
 		IG_Kola k = service.saveKola(kola);
 		return new ResponseEntity<IG_Kola>(k, HttpStatus.CREATED);
 	}
-	
-	
+
+  
 	
 	@PostMapping("/ubaciKolaUListu")
 	public ResponseEntity<IG_Lista_has_Kola> ubaciKolaUListu(@RequestBody @Valid IG_Lista_has_Kola listaHasKola) {
@@ -64,6 +64,12 @@ public class KolaController {
 	@GetMapping("/kolaUListi/{idLista}")
 	public List<IG_Kola> kolaUListi(@PathVariable @Min(value=0, message="id liste mora biti nenegativan ceo broj") int idLista){
 		return service.autiUListi(idLista);
+	}
+	
+	@PostMapping("/ubaciKolaUListu")
+	public ResponseEntity<IG_Lista_has_Kola> ubaciKolaUListu(@RequestBody @Valid IG_Lista_has_Kola listaHasKola) {
+		IG_Lista_has_Kola lhk = service.ubaciKolaUListu(listaHasKola);
+		return new ResponseEntity<IG_Lista_has_Kola>(lhk, HttpStatus.CREATED);
 	}
 	
 }
