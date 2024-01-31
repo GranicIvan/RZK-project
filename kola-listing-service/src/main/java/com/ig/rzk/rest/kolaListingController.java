@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ig.rzk.beans.IG_Kola;
+import com.ig.rzk.beans.IG_Lista;
 import com.ig.rzk.proxy.KolaProxy;
 
 @RestController
@@ -20,7 +21,7 @@ public class kolaListingController {
 	
 	@GetMapping("/svaKolaKorisnika/{idKorisnika}")
 	public List<IG_Kola> svaKolaKorisnika(@PathVariable int idKorisnika){
-		proxy.sveListe();
+		List<IG_Lista> liste = proxy.sveListe();
 		//TODO sada nadjemo korisnika i onda uzmemo samo ta kola
 		return null;
 	}
