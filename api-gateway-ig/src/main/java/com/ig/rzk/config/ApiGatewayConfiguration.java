@@ -26,6 +26,10 @@ public class ApiGatewayConfiguration {
 
 		return builder.routes()
 				.route(routerFunction)
+				.route(p->p.path("/svaKola/**").uri("lb://kola-service"))
+				.route(p->p.path("/sva-kola-na-sajtu/**")
+					.filters(f->f.rewritePath("/sva-kola-na-sajtu", "/svaKola"))
+					.uri("lb://kola-service"))
 				.build();
 	}
 }
